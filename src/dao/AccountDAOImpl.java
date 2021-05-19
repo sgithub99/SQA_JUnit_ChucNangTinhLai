@@ -83,9 +83,5 @@ public class AccountDAOImpl implements AccountDAO {
 
 	}
 
-	public static void main(String[] args) {
-		float accountDAOImpl = new AccountDAOImpl().calculateInterest(200000000, 400000000, -4, 1);
-		System.out.println(accountDAOImpl);
-	}
 
 }
