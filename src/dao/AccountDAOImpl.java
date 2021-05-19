@@ -88,31 +88,4 @@ public class AccountDAOImpl implements AccountDAO {
 		System.out.println(accountDAOImpl);
 	}
 
-	@Override
-	public List<Account> getListAccount() {
-		List<Account> accounts = new ArrayList<>();
-		Connection con = null;
-
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-
-		con = DBUltility.openConnection();
-
-		try {
-			prst = con.prepareStatement("select * from Account");
-			rs = prst.executeQuery();
-
-			while (rs.next()) {
-				Account account = new Account();
-				account.setAccountNo(rs.getString("AccountId"));
-				account.setCustomerName(rs.getString("AccountName"));
-				account.setBalance(rs.getInt("Balance"));
-				accounts.add(account);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return accounts;
-	}
 }
